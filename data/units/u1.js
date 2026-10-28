@@ -1,0 +1,200 @@
+export default {
+  id: 'u1',
+  title: 'Hallo & Tschüss',
+  titleEs: '¡Hola!',
+  place: 'Madrid',
+  country: 'ES',
+  emoji: '👋',
+  lessons: [
+    {
+      id: 'u1l1',
+      title: 'Begrüßen',
+      goal: 'Du lernst, Menschen zu jeder Tageszeit zu begrüßen und dich zu verabschieden.',
+      cando: 'Ich kann Menschen zu jeder Tageszeit begrüßen und mich verabschieden.',
+      situation: 'Begrüßen',
+      items: [
+        { id: 'hola', es: '¡Hola!', de: 'Hallo!', emoji: '👋' },
+        { id: 'buenos-dias', es: 'Buenos días', de: 'Guten Morgen / Guten Tag', emoji: '🌅', note: 'bis zum Mittagessen' },
+        { id: 'buenas-tardes', es: 'Buenas tardes', de: 'Guten Tag / Guten Nachmittag', emoji: '☀️', note: 'nach dem Mittagessen bis zum Dunkelwerden' },
+        { id: 'buenas-noches', es: 'Buenas noches', de: 'Guten Abend / Gute Nacht', emoji: '🌙' },
+        { id: 'que-tal', es: '¿Qué tal?', de: 'Wie geht’s?', emoji: '🙂' },
+        { id: 'bien-gracias', es: 'Bien, gracias.', de: 'Gut, danke.', emoji: '👍' },
+        { id: 'adios', es: 'Adiós', de: 'Tschüss / Auf Wiedersehen', emoji: '🚶‍♀️' },
+        { id: 'hasta-luego', es: 'Hasta luego', de: 'Bis später / Tschüss', emoji: '👋' },
+      ],
+      tip: {
+        title: 'Tag oder Nachmittag?',
+        text: 'In Spanien isst man spät zu Mittag (14–15 Uhr). Bis dahin sagt man „Buenos días“, danach „Buenas tardes“. Ab dem Dunkelwerden heißt es „Buenas noches“ – das ist Begrüßung und Abschied zugleich.',
+      },
+      scene: {
+        title: 'Morgens in der Bäckerei',
+        intro: 'Es ist 9 Uhr. Du betrittst eine kleine Bäckerei in Madrid.',
+        lines: [
+          { who: 'npc', name: 'Panadera', es: '¡Buenos días!', de: 'Guten Morgen!' },
+          { who: 'you', options: [
+            { es: '¡Buenos días!', de: 'Guten Morgen!', ok: true },
+            { es: '¡Buenas noches!', de: 'Guten Abend!', ok: false, why: 'Es ist Morgen – „Buenas noches“ sagt man abends.' },
+          ] },
+          { who: 'npc', name: 'Panadera', es: '¿Qué tal?', de: 'Wie geht’s?' },
+          { who: 'you', options: [
+            { es: 'Bien, gracias.', de: 'Gut, danke.', ok: true },
+            { es: 'Adiós.', de: 'Tschüss.', ok: false, why: 'Sie fragt, wie es dir geht. „Adiós“ sagt man beim Gehen.' },
+          ] },
+          { who: 'npc', name: 'Panadera', es: '¡Hasta luego!', de: 'Bis später!' },
+          { who: 'you', options: [
+            { es: '¡Adiós!', de: 'Tschüss!', ok: true },
+            { es: '¿Qué tal?', de: 'Wie geht’s?', ok: false, why: 'Sie verabschiedet sich gerade – jetzt passt „Adiós“ oder „Hasta luego“.' },
+          ] },
+        ],
+      },
+      news: 'n01',
+    },
+    {
+      id: 'u1l2',
+      title: 'Sich vorstellen',
+      goal: 'Du lernst, deinen Namen zu sagen und zu sagen, woher du kommst.',
+      cando: 'Ich kann mich mit Namen und Herkunft vorstellen und nach dem Namen fragen.',
+      situation: 'Kennenlernen',
+      items: [
+        { id: 'me-llamo', es: 'Me llamo {name}.', de: 'Ich heiße {name}.', emoji: '🙋‍♀️' },
+        { id: 'como-se-llama', es: '¿Cómo se llama usted?', de: 'Wie heißen Sie?', emoji: '❓' },
+        { id: 'como-te-llamas', es: '¿Cómo te llamas?', de: 'Wie heißt du?', emoji: '🧒' },
+        { id: 'mucho-gusto', es: 'Mucho gusto.', de: 'Sehr erfreut.', emoji: '🤝' },
+        { id: 'encantada', es: 'Encantada.', de: 'Freut mich. (als Frau)', emoji: '😊', note: 'Ein Mann sagt „encantado“.' },
+        { id: 'soy-de-alemania', es: 'Soy de Alemania.', de: 'Ich komme aus Deutschland.', emoji: '🇩🇪' },
+        { id: 'soy-alemana', es: 'Soy alemana.', de: 'Ich bin Deutsche.', emoji: '🇩🇪', note: 'Ein Mann: „alemán“.' },
+        { id: 'de-donde-es', es: '¿De dónde es usted?', de: 'Woher kommen Sie?', emoji: '🌍' },
+      ],
+      tip: {
+        title: 'Du oder Sie?',
+        text: '„Usted“ ist das höfliche „Sie“ – damit liegst du bei Fremden, im Hotel und bei Älteren immer richtig. Junge Leute und Freunde sagen schnell „tú“ (du). In Spanien wird viel schneller geduzt als in Mexiko.',
+      },
+      scene: {
+        title: 'Am Pool im Hotel',
+        intro: 'Eine Frau setzt sich neben dich auf die Liege und lächelt.',
+        lines: [
+          { who: 'npc', name: 'Lucía', es: '¡Hola! Me llamo Lucía. ¿Cómo se llama usted?', de: 'Hallo! Ich heiße Lucía. Wie heißen Sie?' },
+          { who: 'you', options: [
+            { es: 'Me llamo {name}.', de: 'Ich heiße {name}.', ok: true },
+            { es: 'Soy de Alemania.', de: 'Ich komme aus Deutschland.', ok: false, why: 'Lucía fragt nach deinem Namen: „Me llamo …“.' },
+          ] },
+          { who: 'npc', name: 'Lucía', es: 'Mucho gusto. ¿De dónde es usted?', de: 'Sehr erfreut. Woher kommen Sie?' },
+          { who: 'you', options: [
+            { es: 'Encantada. Soy de Alemania.', de: 'Freut mich. Ich komme aus Deutschland.', ok: true },
+            { es: '¿Cómo te llamas?', de: 'Wie heißt du?', ok: false, why: 'Sie will wissen, woher du kommst: „Soy de Alemania.“' },
+          ] },
+          { who: 'npc', name: 'Lucía', es: '¡Qué bien! Yo soy de Madrid.', de: 'Wie schön! Ich bin aus Madrid.' },
+        ],
+      },
+      news: 'n02',
+    },
+    {
+      id: 'u1l3',
+      title: 'Höflich sein',
+      goal: 'Du lernst die wichtigsten Höflichkeitswörter für jeden Tag.',
+      cando: 'Ich kann bitte, danke und Entschuldigung sagen und höflich jemanden ansprechen.',
+      situation: 'Höflich sein',
+      items: [
+        { id: 'por-favor', es: 'Por favor', de: 'Bitte', emoji: '🙏' },
+        { id: 'gracias', es: 'Gracias', de: 'Danke', emoji: '💐' },
+        { id: 'muchas-gracias', es: 'Muchas gracias', de: 'Vielen Dank', emoji: '💐' },
+        { id: 'de-nada', es: 'De nada', de: 'Gern geschehen', emoji: '😊' },
+        { id: 'disculpe', es: 'Disculpe', de: 'Entschuldigen Sie (zum Ansprechen)', emoji: '✋' },
+        { id: 'perdon', es: 'Perdón', de: 'Verzeihung', emoji: '😅' },
+        { id: 'lo-siento', es: 'Lo siento', de: 'Es tut mir leid', emoji: '😔' },
+        { id: 'si', es: 'Sí', de: 'Ja', emoji: '✅' },
+        { id: 'no', es: 'No', de: 'Nein', emoji: '❌' },
+      ],
+      tip: {
+        title: 'Disculpe – dein Zauberwort',
+        text: 'Mit „Disculpe“ sprichst du jeden Fremden höflich an: Kellner, Passanten, Busfahrer. Danach kommt einfach deine Frage. „Perdón“ sagst du, wenn du jemanden anrempelst oder vorbei willst.',
+      },
+      scene: {
+        title: 'Im vollen Bus',
+        intro: 'Du willst im Bus aussteigen, aber ein Mann steht im Weg.',
+        lines: [
+          { who: 'you', options: [
+            { es: 'Perdón.', de: 'Verzeihung.', ok: true },
+            { es: 'De nada.', de: 'Gern geschehen.', ok: false, why: '„De nada“ ist die Antwort auf „Gracias“.' },
+          ] },
+          { who: 'npc', name: 'Señor', es: 'Sí, sí, por favor.', de: 'Ja, ja, bitte.' },
+          { who: 'you', options: [
+            { es: 'Muchas gracias.', de: 'Vielen Dank.', ok: true },
+            { es: 'Lo siento.', de: 'Es tut mir leid.', ok: false, why: 'Er macht dir Platz – jetzt bedankst du dich.' },
+          ] },
+          { who: 'npc', name: 'Señor', es: 'De nada.', de: 'Gern geschehen.' },
+        ],
+      },
+      news: 'n03',
+    },
+    {
+      id: 'u1l4',
+      title: 'Wenn du nichts verstehst',
+      goal: 'Du lernst die Rettungssätze, wenn jemand zu schnell spricht.',
+      cando: 'Ich kann sagen, dass ich nichts verstehe, und um Wiederholung bitten.',
+      situation: 'Verständigung',
+      items: [
+        { id: 'no-entiendo', es: 'No entiendo.', de: 'Ich verstehe nicht.', emoji: '🤷‍♀️' },
+        { id: 'puede-repetir', es: '¿Puede repetir, por favor?', de: 'Können Sie das bitte wiederholen?', emoji: '🔁' },
+        { id: 'mas-despacio', es: 'Más despacio, por favor.', de: 'Langsamer, bitte.', emoji: '🐢' },
+        { id: 'habla-ingles', es: '¿Habla usted inglés?', de: 'Sprechen Sie Englisch?', emoji: '🇬🇧' },
+        { id: 'hablo-un-poco', es: 'Hablo un poco de español.', de: 'Ich spreche ein bisschen Spanisch.', emoji: '🤏' },
+        { id: 'que-significa', es: '¿Qué significa «cuenta»?', de: 'Was bedeutet „cuenta“?', emoji: '📖' },
+        { id: 'como-se-dice', es: '¿Cómo se dice «Wasser» en español?', de: 'Wie sagt man „Wasser“ auf Spanisch?', emoji: '💬' },
+      ],
+      tip: {
+        title: 'Keine Angst vor schnellen Spaniern',
+        text: 'Spanisch klingt schnell – das ist normal, nicht deine Schuld. Mit „Más despacio, por favor“ reden fast alle sofort langsamer und freuen sich, dass du es versuchst. „Hablo un poco de español“ öffnet viele Herzen.',
+      },
+      scene: {
+        title: 'Auf der Straße',
+        intro: 'Eine ältere Dame fragt dich etwas – sehr schnell.',
+        lines: [
+          { who: 'npc', name: 'Señora', es: 'Perdone, ¿sabe usted dónde está la parada del autobús veintisiete?', de: 'Entschuldigung, wissen Sie, wo die Haltestelle vom Bus 27 ist?' },
+          { who: 'you', options: [
+            { es: 'Perdón, no entiendo. Más despacio, por favor.', de: 'Verzeihung, ich verstehe nicht. Langsamer, bitte.', ok: true },
+            { es: 'Muchas gracias.', de: 'Vielen Dank.', ok: false, why: 'Du hast nichts verstanden – sag es ruhig: „No entiendo.“' },
+          ] },
+          { who: 'npc', name: 'Señora', es: 'La pa-ra-da… del autobús.', de: 'Die Hal-te-stel-le … vom Bus.' },
+          { who: 'you', options: [
+            { es: 'Lo siento, hablo un poco de español.', de: 'Es tut mir leid, ich spreche ein bisschen Spanisch.', ok: true },
+            { es: 'Buenas noches.', de: 'Guten Abend.', ok: false, why: 'Hier hilft: „Lo siento, hablo un poco de español.“' },
+          ] },
+          { who: 'npc', name: 'Señora', es: '¡No pasa nada! Gracias.', de: 'Macht nichts! Danke.' },
+        ],
+      },
+      news: 'n04',
+    },
+  ],
+  finale: {
+    title: 'Ankunft im Hotel in Madrid',
+    intro: 'Du kommst abends im Hotel an. Der Rezeptionist begrüßt dich.',
+    lines: [
+      { who: 'npc', name: 'Recepcionista', es: '¡Buenas noches! ¿Qué tal?', de: 'Guten Abend! Wie geht’s?' },
+      { who: 'you', options: [
+        { es: '¡Buenas noches! Bien, gracias.', de: 'Guten Abend! Gut, danke.', ok: true },
+        { es: '¡Buenos días! Adiós.', de: 'Guten Morgen! Tschüss.', ok: false, why: 'Es ist Abend, und du kommst gerade an.' },
+      ] },
+      { who: 'npc', name: 'Recepcionista', es: '¿Cómo se llama usted?', de: 'Wie heißen Sie?' },
+      { who: 'you', options: [
+        { es: 'Me llamo {name}.', de: 'Ich heiße {name}.', ok: true },
+        { es: 'De nada.', de: 'Gern geschehen.', ok: false, why: 'Er fragt nach deinem Namen.' },
+      ] },
+      { who: 'npc', name: 'Recepcionista', es: 'Perfecto, señora. Su habitación es la cuatrocientos doce, en la cuarta planta.', de: 'Perfekt, gnädige Frau. Ihr Zimmer ist die 412, im vierten Stock.' },
+      { who: 'you', options: [
+        { es: 'Perdón, no entiendo. ¿Puede repetir, por favor?', de: 'Verzeihung, ich verstehe nicht. Können Sie das bitte wiederholen?', ok: true },
+        { es: 'Soy alemana.', de: 'Ich bin Deutsche.', ok: false, why: 'Wenn du etwas nicht verstanden hast: „¿Puede repetir, por favor?“' },
+      ] },
+      { who: 'npc', name: 'Recepcionista', es: 'Claro. Habitación cuatro, uno, dos.', de: 'Natürlich. Zimmer vier, eins, zwei.' },
+      { who: 'you', options: [
+        { es: 'Muchas gracias.', de: 'Vielen Dank.', ok: true },
+        { es: 'Lo siento.', de: 'Es tut mir leid.', ok: false, why: 'Er hat dir geholfen – bedank dich.' },
+      ] },
+      { who: 'npc', name: 'Recepcionista', es: 'De nada. ¡Buenas noches!', de: 'Gern geschehen. Gute Nacht!' },
+      { who: 'you', options: [
+        { es: '¡Buenas noches! ¡Hasta luego!', de: 'Gute Nacht! Bis später!', ok: true },
+        { es: '¿Qué tal?', de: 'Wie geht’s?', ok: false, why: 'Er verabschiedet dich – jetzt passt ein Gruß zum Abschied.' },
+      ] },
+    ],
+  },
+};
