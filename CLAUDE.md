@@ -32,7 +32,7 @@ Lies zuerst: `docs/SPEC.md` (was die App kann + Design), `docs/DATA.md` (Datenfo
 
 ## Befehle
 - Lokal testen: `npx --yes http-server -p 8080 -c-1 .` → `http://localhost:8080/`
-- Logik-Tests: `node --test tests/` (nur Node-Standard, keine Abhängigkeiten)
+- Logik-Tests: `node --test tests/*.test.js` (bzw. `npm test`) (nur Node-Standard, keine Abhängigkeiten)
 - Daten prüfen: `node tools/validate.mjs`
 
 ## Git
