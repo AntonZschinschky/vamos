@@ -65,6 +65,7 @@ Satzzeichen bleiben am Wort).
   ],
 }
 ```
+`who: 'note'` → Erzähl-Zeile ohne Audio (nur `de`, kursiv, z. B. „Zehn Minuten später …“).
 `who: 'you'` → sie wählt; genau eine Option `ok: true`. `why` = Erklärung bei falscher Wahl.
 
 ## Zeitungssätze – `data/news.js`
