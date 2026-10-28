@@ -3,6 +3,9 @@
 Budget: **eine** Cloud-Session (Restguthaben ≈ 8 $). Alles andere lokal.
 
 ## Cloud-Session 1 – „erledige Session 1“: die komplette App (Code)
+✅ 28.10.: Punkte 1–12 erledigt (38 Tests grün, `validate.mjs` grün). Entscheidungen: eine Karte pro Tag
+(Abschluss-Szenen immer); „Noch eine Lektion“ ohne Aufwärmen; Nachsprechen beeinflusst die Wiederholung nicht.
+
 Arbeite die Liste **von oben nach unten** ab. Nach jedem Punkt: Tests grün → commit → **push**.
 Wenn das Guthaben endet, muss der gepushte Stand lauffähig sein. Am Ende PR gegen `main`.
 Inhalte in `data/` nicht ändern (Beispiel-Daten u1 + Platzhalter reichen zum Bauen).
