@@ -122,3 +122,17 @@ export default [{
 }
 ```
 SRS: Leitner-Boxen 0–5, Abstände 0, 1, 2, 4, 8, 16 Tage. Richtig → Box +1, falsch → Box 1.
+
+Zusätzliche Felder (von der App gepflegt, `migrate()` in `js/store.js` ergänzt sie bei alten Ständen):
+- `goldStreakGiven: false` – die einmalige Gold-Karte für 7 Tage in Folge wurde schon vergeben.
+- `settings.micExplained: false` – Mikrofon-Erklärung vor dem ersten Nachsprechen schon gezeigt.
+- `days[d].card: 'c-…'` – an diesem Tag gezogene Karte (eine Karte pro Tag; Abschluss-Szenen immer).
+- `streak.jokerDay: 'YYYY-MM-DD'` – der per Joker überbrückte Tag (nur Anzeige).
+- `srs[id].last`, `srs[id].lastWrong` – letzter Übungstag; höchstens eine Beförderung pro Tag,
+  falsch am selben Tag → bleibt in Box 1.
+- `session` – laufende Tageseinheit: `{ date, seed, kind: 'lesson'|'finale'|'review', ref, extra,
+  tasks: [{ t: 'warmup'|'goal'|'learn'|'tip'|'ex'|'scene'|'news'|'done'|'card', … }], pos, right, wrong,
+  seconds, newWords, finished, card }`. Die Aufgabenliste wird beim Start einmal erzeugt
+  (`js/session.js`), `pos` nach jedem Schritt gespeichert → „Weitermachen“ setzt genau dort fort.
+
+Sicherungs-Code (Einstellungen): `'VAMOS1-' + Base64(UTF-8-JSON des Fortschritts ohne session)`.

@@ -1,6 +1,6 @@
 // Einstieg: kleiner Hash-Router, Tab-Leiste, iOS-Audio-Entsperrung, Service Worker.
 import { mount } from './dom.js';
-import { app, go } from './ctx.js';
+import { app, C, go } from './ctx.js';
 import { persist } from './store.js';
 import { unlock } from './speech.js';
 import { unlockAudio } from './sound.js';
@@ -68,6 +68,10 @@ if (app.state.onboarded) persist();
 
 if ('serviceWorker' in navigator && location.protocol !== 'file:') {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').catch(() => {});
+    navigator.serviceWorker.register('./sw.js').then(() => navigator.serviceWorker.ready).then((reg) => {
+      // Kartenbilder für offline vorab speichern
+      const urls = C.cards.filter((c) => c.image).map((c) => './' + c.image.replace(/^\.?\//, ''));
+      if (reg.active) reg.active.postMessage({ type: 'precache', urls });
+    }).catch(() => {});
   });
 }
