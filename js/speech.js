@@ -40,7 +40,17 @@ export function availableRegions() {
   return { ES: langs.includes('es-es'), MX: langs.includes('es-mx') || langs.some((l) => /-(us|419)/.test(l)), any: langs.length > 0 };
 }
 
-if (synth && 'onvoiceschanged' in synth) synth.onvoiceschanged = () => {};
+const voiceListeners = new Set();
+/** Benachrichtigung, wenn die Stimmen (auf iOS verzögert) geladen sind. Gibt eine Abmelde-Funktion zurück. */
+export function onVoices(fn) {
+  voiceListeners.add(fn);
+  return () => voiceListeners.delete(fn);
+}
+if (synth) {
+  const fire = () => voiceListeners.forEach((fn) => fn());
+  if (synth.addEventListener) synth.addEventListener('voiceschanged', fire);
+  else synth.onvoiceschanged = fire;
+}
 
 let unlocked = false;
 /** iOS: Erste Ausgabe nur nach Nutzer-Tipp – leise „Leer-Ausgabe“ im ersten Tipp. */

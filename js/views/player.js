@@ -195,7 +195,9 @@ export function playerView() {
         h('div.stats',
           h('div', h('b', `${pct}%`), h('span', 'richtig')),
           h('div', h('b', minutes), h('span', minutes === 1 ? 'Minute' : 'Minuten')),
-          h('div', h('b', s.newWords || 0), h('span', 'neue Wörter'))),
+          s.kind === 'lesson'
+            ? h('div', h('b', s.newWords || 0), h('span', 'neue Wörter'))
+            : h('div', h('b', currentStreak(app.state.streak, app.day())), h('span', 'Tage in Folge'))),
         s.card ? null : h('p.center.muted', 'Heute hast du schon eine Karte gezogen – morgen wartet die nächste!')),
       h('div.step-foot',
         h('button.btn', { type: 'button', onclick: s.card ? next : finish }, s.card ? '🃏 Karte ziehen' : 'Fertig')));

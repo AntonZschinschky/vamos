@@ -47,8 +47,8 @@ function frame(label, body, foot) {
     h('div.step-foot', foot));
 }
 
-function nextBtn(ctx, text = 'Weiter') {
-  return h('button.btn', { type: 'button', onclick: () => ctx.next() }, text);
+function nextBtn(ctx, text = 'Weiter', cls = '') {
+  return h(`button.btn${cls}`, { type: 'button', onclick: () => ctx.next() }, text);
 }
 
 // ── Auswahl: Hören / Bild / Deutsch→Spanisch ──
@@ -203,7 +203,10 @@ function renderSpeak(ex, ctx) {
   const st = ctx.state;
   setTimeout(() => speak(say), 250);
 
-  const skip = (text = 'Weiter') => { foot.textContent = ''; foot.appendChild(nextBtn(ctx, text)); };
+  const skip = (text = 'Weiter') => {
+    foot.textContent = '';
+    foot.appendChild(nextBtn(ctx, text, text === 'Überspringen' ? '.ghost' : ''));
+  };
 
   function noMic(msg) {
     area.textContent = '';

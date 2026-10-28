@@ -28,6 +28,7 @@ const tabs = document.getElementById('tabs');
 function render() {
   let key = location.hash.replace(/^#\/?/, '').split('?')[0];
   if (!app.state.onboarded && key !== 'willkommen') return go('#/willkommen');
+  if (app.state.onboarded && key === 'willkommen') return go('#/');
   if (!ROUTES[key]) key = '';
   const r = ROUTES[key];
   document.querySelectorAll('.overlay, .picado').forEach((o) => o.remove());

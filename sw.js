@@ -1,5 +1,5 @@
 // Service Worker: Cache-first für alles (offline-fähig). Bei JEDER Änderung CACHE hochzählen!
-const CACHE = 'vamos-v1';
+const CACHE = 'vamos-v2';
 
 // Kern-Dateien (tools/validate.mjs prüft, dass die Liste vollständig ist). Kartenbilder schickt die App
 // nach dem Start per Nachricht (siehe js/app.js), alles andere wird beim ersten Abruf gespeichert.

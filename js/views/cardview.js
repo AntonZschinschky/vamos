@@ -55,10 +55,10 @@ export function papelPicado(n = 36) {
   const box = h('div.picado', { 'aria-hidden': 'true' });
   for (let i = 0; i < n; i++) {
     const dur = 2.6 + Math.random() * 2.2;
-    box.appendChild(h('i', { style: `left:${Math.random() * 100}%;background:${PICADO_COLORS[i % PICADO_COLORS.length]};animation-duration:${dur}s;animation-delay:${Math.random() * 0.8}s;--rot:${Math.round(Math.random() * 720 - 360)}deg` }));
+    box.appendChild(h('i', { style: `left:${Math.random() * 100}%;background:${PICADO_COLORS[i % PICADO_COLORS.length]};animation-duration:${dur}s;animation-delay:${Math.random() * 2.4}s;--rot:${Math.round(Math.random() * 720 - 360)}deg` }));
   }
   document.body.appendChild(box);
-  setTimeout(() => box.remove(), 6000);
+  setTimeout(() => box.remove(), 8000);
 }
 
 export function garland(n = 14) {
@@ -96,7 +96,7 @@ export function drawStage(card, result, { onDone, onAlbum }) {
     flipper.classList.add('flipped');
     setTimeout(() => {
       front.style.visibility = 'hidden';
-      if (result.rarity === 'gold') { sfx.gold(); papelPicado(48); }
+      if (result.rarity === 'gold') { sfx.gold(); papelPicado(40); }
       else if (result.rarity === 'silver') sfx.silver();
       else sfx.done();
       msg.textContent = '';

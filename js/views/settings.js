@@ -1,7 +1,7 @@
 // Einstellungen: Name, Stimme, Tempo, Ton, Home-Bildschirm, Sicherung, Zurücksetzen.
 import { h, toast } from '../dom.js';
 import { app, go } from '../ctx.js';
-import { speak, availableRegions, hasTTS } from '../speech.js';
+import { speak, availableRegions, hasTTS, onVoices } from '../speech.js';
 import { exportCode, importCode, defaultState } from '../store.js';
 import { homeScreenHowto, isStandalone } from './onboarding.js';
 
@@ -23,17 +23,24 @@ export const VERSION_LABEL = 'Version 1';
 export function settingsView() {
   const s = app.state.settings;
   const set = (k, v) => { s[k] = v; app.applySettings(); app.save(); };
-  const regions = availableRegions();
 
   const name = h('input.field', { type: 'text', value: s.name || '', placeholder: 'Ana', autocomplete: 'given-name', autocapitalize: 'words' });
   name.addEventListener('change', () => { set('name', name.value.trim()); toast('Gespeichert ✓'); });
 
-  let voiceNote = null;
-  if (!hasTTS() || !regions.any) {
-    voiceNote = h('p.small', { style: 'color:var(--terra-dark)' }, 'Auf diesem Gerät ist keine spanische Stimme gefunden worden. Am iPhone: Einstellungen → Bedienungshilfen → Gesprochene Inhalte → Stimmen → Spanisch → z. B. „Mónica“ (Spanien) oder „Paulina“ (Mexiko) laden.');
-  } else if ((s.voice === 'es-MX' && !regions.MX) || (s.voice === 'es-ES' && !regions.ES)) {
-    voiceNote = h('p.small.muted', 'Diese Stimme ist auf dem Gerät nicht installiert – es wird eine andere spanische Stimme genutzt.');
+  // Stimmen laden auf iOS verzögert → Hinweis erst nach kurzer Zeit / bei „voiceschanged“ bewerten.
+  const voiceNote = h('div');
+  function updateVoiceNote() {
+    const regions = availableRegions();
+    voiceNote.textContent = '';
+    if (!hasTTS() || !regions.any) {
+      voiceNote.appendChild(h('p.small', { style: 'color:var(--terra-dark)' }, 'Auf diesem Gerät ist keine spanische Stimme gefunden worden. Am iPhone: Einstellungen → Bedienungshilfen → Gesprochene Inhalte → Stimmen → Spanisch → z. B. „Mónica“ (Spanien) oder „Paulina“ (Mexiko) laden.'));
+    } else if ((s.voice === 'es-MX' && !regions.MX) || (s.voice === 'es-ES' && !regions.ES)) {
+      voiceNote.appendChild(h('p.small.muted', 'Diese Stimme ist auf dem Gerät nicht installiert – es wird eine andere spanische Stimme genutzt.'));
+    }
   }
+  const off = onVoices(updateVoiceNote);
+  setTimeout(updateVoiceNote, 700);
+  window.addEventListener('hashchange', off, { once: true });
 
   const sound = h('input', { type: 'checkbox', checked: !!s.sound, 'aria-label': 'Töne an' });
   sound.addEventListener('change', () => set('sound', sound.checked));
@@ -96,7 +103,7 @@ export function settingsView() {
 
     h('div.card',
       h('label.lbl', 'Stimme'),
-      seg([['es-ES', '🇪🇸 Spanien'], ['es-MX', '🇲🇽 Mexiko']], s.voice, (v) => { set('voice', v); speak('¡Hola! ¿Qué tal?'); }),
+      seg([['es-ES', '🇪🇸 Spanien'], ['es-MX', '🇲🇽 Mexiko']], s.voice, (v) => { set('voice', v); updateVoiceNote(); speak('¡Hola! ¿Qué tal?'); }),
       voiceNote,
       h('label.lbl', { style: 'margin-top:16px' }, 'Sprechtempo'),
       seg([[0.75, '🐢 Ruhig'], [0.9, 'Normal'], [1, '🐇 Zügig']], s.rate, (v) => { set('rate', v); speak('Buenos días, ¿cómo está usted?'); }),
