@@ -35,6 +35,7 @@ Inhalte in `data/` nicht ändern (Beispiel-Daten u1 + Platzhalter reichen zum Ba
     `prefers-reduced-motion`.
 
 ## Lokal (Claude auf Antons PC, ohne Cloud-Guthaben)
+- ✅ 28.10.: alle Inhalte fertig (u1–u8, 32 echte Zeitungssätze, 48 Karten mit Bildern) – kein Platzhalter mehr.
 - Inhalte: Einheiten u2–u8, ~32 echte Zeitungssätze 2026 mit Quelle, ~50 Geschichtskarten mit
   gemeinfreien Bildern (Wikimedia Commons), Fakten geprüft.
 - PR prüfen/mergen, Test im Handy-Format (Chrome), App-Icons rendern, GitHub Pages, Link an Mama.

@@ -1,0 +1,201 @@
+export default {
+  id: 'u5',
+  title: 'Einkaufen',
+  titleEs: 'De compras',
+  place: 'Ciudad de México',
+  country: 'MX',
+  emoji: '🛍️',
+  lessons: [
+    {
+      id: 'u5l1',
+      title: 'Auf dem Markt',
+      goal: 'Du lernst Obst und Gemüse und wie man auf dem Markt einkauft.',
+      cando: 'Ich kann auf dem Markt Obst und Gemüse kaufen.',
+      situation: 'Markt',
+      items: [
+        { id: 'el-mercado', es: 'el mercado', de: 'der Markt', emoji: '🧺' },
+        { id: 'las-manzanas', es: 'las manzanas', de: 'die Äpfel', emoji: '🍎' },
+        { id: 'los-platanos', es: 'los plátanos', de: 'die Bananen', emoji: '🍌' },
+        { id: 'los-tomates', es: 'los tomates', de: 'die Tomaten', emoji: '🍅', alt: ['los jitomates'], note: 'In Mexiko oft „jitomates“' },
+        { id: 'el-aguacate', es: 'el aguacate', de: 'die Avocado', emoji: '🥑' },
+        { id: 'el-mango', es: 'el mango', de: 'die Mango', emoji: '🥭' },
+        { id: 'un-kilo', es: 'un kilo de tomates', de: 'ein Kilo Tomaten', emoji: '⚖️' },
+        { id: 'medio-kilo', es: 'medio kilo', de: 'ein halbes Kilo', emoji: '⚖️' },
+        { id: 'me-da', es: '¿Me da un kilo, por favor?', de: 'Geben Sie mir bitte ein Kilo?', emoji: '🙋‍♀️', region: 'MX' },
+      ],
+      tip: {
+        title: 'Aguacate kommt von den Azteken',
+        text: 'Viele Wörter kommen aus dem Nahuatl, der Sprache der Azteken: aguacate (Avocado), tomate, chocolate, chile. In Mexiko sagt man für Tomate sogar noch „jitomate“ – fast wie vor 500 Jahren.',
+      },
+      scene: {
+        title: 'Am Obststand',
+        intro: 'Du bist auf einem bunten Markt in Coyoacán.',
+        lines: [
+          { who: 'npc', name: 'Marchante', es: '¿Qué le doy, señora?', de: 'Was darf ich Ihnen geben?' },
+          { who: 'you', options: [
+            { es: '¿Me da un kilo de mangos, por favor?', de: 'Geben Sie mir bitte ein Kilo Mangos?', ok: true },
+            { es: '¿Me da la llave, por favor?', de: 'Geben Sie mir bitte den Schlüssel?', ok: false, why: 'Auf dem Markt kaufst du Obst – z. B. Mangos.' },
+          ] },
+          { who: 'npc', name: 'Marchante', es: '¿Algo más?', de: 'Noch etwas?' },
+          { who: 'you', options: [
+            { es: 'Sí, dos aguacates.', de: 'Ja, zwei Avocados.', ok: true },
+            { es: 'No funciona.', de: 'Es funktioniert nicht.', ok: false, why: 'Antworte mit „Sí, …“ oder „No, gracias“.' },
+          ] },
+          { who: 'npc', name: 'Marchante', es: 'Ándele, aquí tiene.', de: 'Bitte sehr, hier haben Sie.' },
+        ],
+      },
+      news: 'n17',
+    },
+    {
+      id: 'u5l2',
+      title: 'Zahlen bis 100',
+      goal: 'Du lernst die Zehnerzahlen bis 100, um Preise zu verstehen.',
+      cando: 'Ich kann Preise bis 100 verstehen und sagen.',
+      situation: 'Zahlen',
+      items: [
+        { id: 'treinta', es: 'treinta', de: 'dreißig', emoji: '🔢' },
+        { id: 'cuarenta', es: 'cuarenta', de: 'vierzig', emoji: '🔢' },
+        { id: 'cincuenta', es: 'cincuenta', de: 'fünfzig', emoji: '🔢' },
+        { id: 'sesenta', es: 'sesenta', de: 'sechzig', emoji: '🔢' },
+        { id: 'setenta', es: 'setenta', de: 'siebzig', emoji: '🔢' },
+        { id: 'ochenta', es: 'ochenta', de: 'achtzig', emoji: '🔢' },
+        { id: 'noventa', es: 'noventa', de: 'neunzig', emoji: '🔢' },
+        { id: 'cien', es: 'cien', de: 'hundert', emoji: '💯' },
+        { id: 'treinta-y-cinco', es: 'treinta y cinco', de: 'fünfunddreißig', emoji: '🔢' },
+      ],
+      tip: {
+        title: 'Zahlen wie Lego',
+        text: 'Ab 31 baust du Zahlen mit „y“ (und) – aber in der richtigen Reihenfolge, nicht verdreht wie im Deutschen: 35 = „treinta y cinco“ (dreißig und fünf). 21–29 schreibt man zusammen: „veintiuno“, „veinticinco“.',
+      },
+      scene: {
+        title: 'Wie viel?',
+        intro: 'Du kaufst einen Strohhut am Marktstand.',
+        lines: [
+          { who: 'you', options: [
+            { es: 'Disculpe, ¿cuánto cuesta?', de: 'Entschuldigung, wie viel kostet das?', ok: true },
+            { es: 'Disculpe, ¿dónde está?', de: 'Entschuldigung, wo ist es?', ok: false, why: 'Du willst den Preis wissen.' },
+          ] },
+          { who: 'npc', name: 'Vendedor', es: 'Ochenta pesos.', de: 'Achtzig Pesos.' },
+          { who: 'you', options: [
+            { es: '¿Ochenta? Muy bien.', de: 'Achtzig? Sehr gut.', ok: true },
+            { es: '¿Dieciocho? Muy bien.', de: 'Achtzehn? Sehr gut.', ok: false, why: '„Ochenta“ ist 80, „dieciocho“ wäre 18 – ein großer Unterschied!' },
+          ] },
+        ],
+      },
+      news: 'n18',
+    },
+    {
+      id: 'u5l3',
+      title: 'Kleidung, Farben, Größen',
+      goal: 'Du lernst Farben und wie man nach Größen fragt.',
+      cando: 'Ich kann Farben nennen und nach einer anderen Größe fragen.',
+      situation: 'Einkaufen',
+      items: [
+        { id: 'rojo', es: 'rojo', de: 'rot', emoji: '🔴' },
+        { id: 'azul', es: 'azul', de: 'blau', emoji: '🔵' },
+        { id: 'verde', es: 'verde', de: 'grün', emoji: '🟢' },
+        { id: 'blanco', es: 'blanco', de: 'weiß', emoji: '⚪' },
+        { id: 'negro', es: 'negro', de: 'schwarz', emoji: '⚫' },
+        { id: 'amarillo', es: 'amarillo', de: 'gelb', emoji: '🟡' },
+        { id: 'tiene-talla', es: '¿Tiene una talla más grande?', de: 'Haben Sie eine Nummer größer?', emoji: '👗' },
+        { id: 'mas-pequena', es: 'más pequeña', de: 'kleiner', emoji: '🤏' },
+        { id: 'puedo-probar', es: '¿Me lo puedo probar?', de: 'Kann ich es anprobieren?', emoji: '🪞' },
+      ],
+      tip: {
+        title: 'Die Farbe kommt hinterher',
+        text: 'Im Spanischen steht die Farbe NACH dem Ding: „un vestido rojo“ (ein rotes Kleid), „una blusa blanca“ (eine weiße Bluse). Bei weiblichen Wörtern wird aus -o ein -a.',
+      },
+      scene: {
+        title: 'In der Boutique',
+        intro: 'Dir gefällt ein besticktes Kleid, aber es ist zu klein.',
+        lines: [
+          { who: 'npc', name: 'Vendedora', es: '¿Le gusta el vestido?', de: 'Gefällt Ihnen das Kleid?' },
+          { who: 'you', options: [
+            { es: 'Sí. ¿Me lo puedo probar?', de: 'Ja. Kann ich es anprobieren?', ok: true },
+            { es: 'Sí. ¿Está lejos?', de: 'Ja. Ist es weit?', ok: false, why: 'Frag, ob du es anprobieren kannst.' },
+          ] },
+          { who: 'npc', name: 'Vendedora', es: 'Claro. ¿Qué tal?', de: 'Natürlich. Und?' },
+          { who: 'you', options: [
+            { es: '¿Tiene una talla más grande?', de: 'Haben Sie eine Nummer größer?', ok: true },
+            { es: 'Más despacio, por favor.', de: 'Langsamer, bitte.', ok: false, why: 'Das Kleid ist zu klein – frag nach einer größeren Größe.' },
+          ] },
+          { who: 'npc', name: 'Vendedora', es: 'Sí, en azul o en blanco.', de: 'Ja, in Blau oder in Weiß.' },
+          { who: 'you', options: [
+            { es: 'En azul, por favor.', de: 'In Blau, bitte.', ok: true },
+            { es: 'En rojo, por favor.', de: 'In Rot, bitte.', ok: false, why: 'Es gibt es nur in Blau oder Weiß.' },
+          ] },
+        ],
+      },
+      news: 'n19',
+    },
+    {
+      id: 'u5l4',
+      title: 'Bezahlen und handeln',
+      goal: 'Du lernst, zu sagen, was dir gefällt, und vorsichtig zu handeln.',
+      cando: 'Ich kann sagen, was mir gefällt, freundlich handeln und bezahlen.',
+      situation: 'Einkaufen',
+      items: [
+        { id: 'me-gusta', es: 'Me gusta.', de: 'Es gefällt mir.', emoji: '😍' },
+        { id: 'no-me-gusta', es: 'No me gusta.', de: 'Es gefällt mir nicht.', emoji: '😕' },
+        { id: 'es-muy-caro', es: 'Es muy caro.', de: 'Das ist sehr teuer.', emoji: '💸' },
+        { id: 'barato', es: 'barato', de: 'billig', emoji: '🪙' },
+        { id: 'me-hace-descuento', es: '¿Me hace un descuento?', de: 'Geben Sie mir einen Rabatt?', emoji: '🤝' },
+        { id: 'me-lo-llevo', es: 'Me lo llevo.', de: 'Ich nehme es.', emoji: '🛍️' },
+        { id: 'solo-estoy-mirando', es: 'Solo estoy mirando, gracias.', de: 'Ich schaue nur, danke.', emoji: '👀' },
+      ],
+      tip: {
+        title: 'Handeln – ja, aber freundlich',
+        text: 'Auf mexikanischen Kunsthandwerksmärkten ist ein bisschen Handeln normal, im Supermarkt und Restaurant nie. Mit einem Lächeln und „¿Me hace un descuento?“ klappt es am besten. „Solo estoy mirando“ hilft, wenn dich alle ansprechen.',
+      },
+      scene: {
+        title: 'Kunsthandwerk',
+        intro: 'Ein Verkäufer zeigt dir eine bunte Talavera-Schale.',
+        lines: [
+          { who: 'npc', name: 'Artesano', es: 'Es talavera de Puebla. Doscientos pesos.', de: 'Das ist Talavera aus Puebla. Zweihundert Pesos.' },
+          { who: 'you', options: [
+            { es: 'Me gusta, pero es muy caro. ¿Me hace un descuento?', de: 'Gefällt mir, aber es ist sehr teuer. Geben Sie mir einen Rabatt?', ok: true },
+            { es: 'No funciona.', de: 'Es funktioniert nicht.', ok: false, why: 'Versuch zu handeln: „¿Me hace un descuento?“' },
+          ] },
+          { who: 'npc', name: 'Artesano', es: 'Bueno, para usted, ciento ochenta.', de: 'Na gut, für Sie hundertachtzig.' },
+          { who: 'you', options: [
+            { es: '¡Perfecto! Me lo llevo.', de: 'Perfekt! Ich nehme es.', ok: true },
+            { es: 'Solo estoy mirando.', de: 'Ich schaue nur.', ok: false, why: 'Er ist dir entgegengekommen – jetzt kaufen: „Me lo llevo.“' },
+          ] },
+          { who: 'npc', name: 'Artesano', es: '¡Gracias, que le vaya bien!', de: 'Danke, alles Gute!' },
+        ],
+      },
+      news: 'n20',
+    },
+  ],
+  finale: {
+    title: 'Souvenirs für die Familie',
+    intro: 'Letzter Tag in Mexiko-Stadt. Du kaufst Geschenke auf dem Markt La Ciudadela.',
+    lines: [
+      { who: 'npc', name: 'Vendedora', es: 'Pásele, pásele. ¿Qué busca?', de: 'Kommen Sie rein, kommen Sie rein. Was suchen Sie?' },
+      { who: 'you', options: [
+        { es: 'Solo estoy mirando, gracias.', de: 'Ich schaue nur, danke.', ok: true },
+        { es: 'Tengo una reserva.', de: 'Ich habe eine Reservierung.', ok: false, why: 'Du bist auf dem Markt, nicht im Hotel.' },
+      ] },
+      { who: 'note', de: 'Dann siehst du einen wunderschönen grünen Schal.' },
+      { who: 'you', options: [
+        { es: 'Me gusta mucho. ¿Cuánto cuesta?', de: 'Gefällt mir sehr. Wie viel kostet das?', ok: true },
+        { es: 'No me gusta. Me lo llevo.', de: 'Gefällt mir nicht. Ich nehme es.', ok: false, why: 'Das passt nicht zusammen 😉' },
+      ] },
+      { who: 'npc', name: 'Vendedora', es: 'Noventa pesos.', de: 'Neunzig Pesos.' },
+      { who: 'you', options: [
+        { es: '¿Noventa? ¿Me hace un descuento?', de: 'Neunzig? Geben Sie mir einen Rabatt?', ok: true },
+        { es: '¿Nueve? ¡Qué barato!', de: 'Neun? Wie billig!', ok: false, why: '„Noventa“ ist 90, nicht 9.' },
+      ] },
+      { who: 'npc', name: 'Vendedora', es: 'Ochenta, y le regalo una pulsera.', de: 'Achtzig, und ich schenke Ihnen ein Armband dazu.' },
+      { who: 'you', options: [
+        { es: '¡Muy bien! Me lo llevo. ¿Puedo pagar con tarjeta?', de: 'Sehr gut! Ich nehme es. Kann ich mit Karte zahlen?', ok: true },
+        { es: '¿Tiene otra habitación?', de: 'Haben Sie ein anderes Zimmer?', ok: false, why: 'Du kaufst einen Schal, kein Hotelzimmer.' },
+      ] },
+      { who: 'npc', name: 'Vendedora', es: 'Solo efectivo, señora.', de: 'Nur bar, gnädige Frau.' },
+      { who: 'you', options: [
+        { es: 'Muy bien, aquí tiene: ochenta pesos.', de: 'Sehr gut, bitte schön: achtzig Pesos.', ok: true },
+        { es: 'No entiendo «efectivo». Adiós.', de: 'Ich verstehe „efectivo“ nicht. Tschüss.', ok: false, why: '„Efectivo“ = bar. Das hast du im Hotel gelernt!' },
+      ] },
+    ],
+  },
+};

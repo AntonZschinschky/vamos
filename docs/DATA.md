@@ -84,6 +84,7 @@ export default [{
   placeholder: true,            // nur bei Entwicklungs-Platzhaltern!
 }]
 ```
+`question.answer` ist der Index der richtigen Option – **die App mischt die Optionen** vor dem Anzeigen.
 Bekannte Wörter = Wörter, die in bereits gelernten Items vorkommen (Vergleich klein, ohne Akzente/Satzzeichen).
 
 ## Sammelkarten – `data/cards.js`
@@ -95,7 +96,8 @@ export default [{
   year: 'um 30 v. Chr.',
   title: 'Kleopatra und die Mondlandung',
   fact: '2–4 Sätze, Deutsch.',
-  image: 'img/cards/cleopatra.jpg',  // relativ; Hochformat ~ 3:4, ≤ 150 KB
+  image: 'img/cards/kleopatra.jpg',  // relativ; max. 640 px, Hoch- ODER Querformat →
+                                     // im Bildfeld mit object-fit: contain auf Papier-Passepartout zeigen
   imageCredit: 'Gemälde von …, gemeinfrei (Wikimedia Commons)',
   source: 'Kurzer Beleg für den Fakt',  // nicht in der UI nötig, nur zur Pflege
   placeholder: true,          // nur Platzhalter
