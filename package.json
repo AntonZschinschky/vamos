@@ -2,5 +2,5 @@
   "name": "vamos",
   "private": true,
   "type": "module",
-  "scripts": { "test": "node --test tests/", "validate": "node tools/validate.mjs" }
+  "scripts": { "test": "node --test tests/*.test.js", "validate": "node tools/validate.mjs" }
 }

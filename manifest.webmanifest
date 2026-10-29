@@ -1,0 +1,17 @@
+{
+  "name": "¡Vamos!",
+  "short_name": "¡Vamos!",
+  "description": "Spanisch für die Reise – 15 Minuten am Tag, mit Geschichts-Sammelkarten.",
+  "lang": "de",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FBF6EE",
+  "theme_color": "#C8553D",
+  "icons": [
+    { "src": "./img/icon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "./img/icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "./img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
