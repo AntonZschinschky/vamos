@@ -3,10 +3,10 @@
 // Aufruf: node tools/validate.mjs   → Exit-Code 1 bei Fehlern, Warnungen nur zur Info.
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const { units, news, cards } = await import(join(ROOT, 'data/index.js'));
+const { units, news, cards } = await import(pathToFileURL(join(ROOT, 'data/index.js')).href);
 
 const errors = [];
 const warnings = [];
@@ -115,7 +115,7 @@ for (const r of RARITIES) if (!cards.some((c) => c.rarity === r)) warn('Karten',
 const sw = readFileSync(join(ROOT, 'sw.js'), 'utf8');
 const listed = new Set([...sw.matchAll(/'\.\/([^']*)'/g)].map((m) => m[1]));
 const walk = (dir) => readdirSync(join(ROOT, dir), { withFileTypes: true })
-  .flatMap((e) => (e.isDirectory() ? walk(join(dir, e.name)) : [join(dir, e.name)]));
+  .flatMap((e) => (e.isDirectory() ? walk(`${dir}/${e.name}`) : [`${dir}/${e.name}`]));
 for (const dir of ['css', 'js', 'data', 'fonts']) {
   for (const f of walk(dir)) if (!f.endsWith('.gitkeep') && !listed.has(f)) err('sw.js', `${f} fehlt in CORE (offline!)`);
 }
